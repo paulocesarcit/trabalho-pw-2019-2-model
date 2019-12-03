@@ -1,8 +1,6 @@
 package br.edu.ifsul.testes.junit;
 
-import br.edu.ifsul.modelo.Especialidade;
-import br.edu.ifsul.modelo.Medico;
-import java.util.Calendar;
+import br.edu.ifsul.modelo.Usuario;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
@@ -11,12 +9,12 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-public class TestePersistirMedico {
+public class TestePersistirUsuario {
        
     EntityManagerFactory emf = null;
     EntityManager em = null;
     
-    public TestePersistirMedico() {
+    public TestePersistirUsuario() {
         
     }
     
@@ -36,20 +34,13 @@ public class TestePersistirMedico {
     public void teste(){
         boolean exception = false;
         try {
-            Medico m = new Medico();
-            m.setCrm("32-222");
-            m.setAltura(1.80);
-            Especialidade esp = em.find(Especialidade.class, 1);
-            m.setEspecialidade(esp);
-            m.setHistorico("Saudavel");
-            Calendar data = Calendar.getInstance();
-            m.setNascimento(data);
-            m.setNome("Paulo Medico");
-            m.setPeso(65.00);
-            m.setSexo("Masculino");
-            m.setTelefone("54999999999");
+            Usuario obj = new Usuario();
+            obj.setEmail("paulocesarcitron15@gmail.com");
+            obj.setNome("Paulo Cesar Martins Citron");
+            obj.setNomeUsuario("paulocitron");
+            obj.setSenha("123456");
             em.getTransaction().begin();
-            em.persist(m);
+            em.persist(obj);
             em.getTransaction().commit();
         } catch (Exception e) {
             exception = true;

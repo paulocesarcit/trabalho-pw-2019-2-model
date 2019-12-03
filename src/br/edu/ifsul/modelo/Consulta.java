@@ -141,6 +141,14 @@ public class Consulta implements Serializable {
         this.receituarios.add(receituario);
     }
     
+    public void removerExames(int index) {
+        this.exames.remove(index);
+    }
+    
+    public void removerReceituarios(int index) {
+        this.receituarios.remove(index);
+    }
+    
     @Override
     public int hashCode() {
         int hash = 7;

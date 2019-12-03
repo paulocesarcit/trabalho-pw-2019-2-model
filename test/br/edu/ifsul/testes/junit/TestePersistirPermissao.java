@@ -1,8 +1,6 @@
 package br.edu.ifsul.testes.junit;
 
-import br.edu.ifsul.modelo.Especialidade;
-import br.edu.ifsul.modelo.Medico;
-import java.util.Calendar;
+import br.edu.ifsul.modelo.Permissao;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
@@ -11,12 +9,12 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-public class TestePersistirMedico {
+public class TestePersistirPermissao {
        
     EntityManagerFactory emf = null;
     EntityManager em = null;
     
-    public TestePersistirMedico() {
+    public TestePersistirPermissao() {
         
     }
     
@@ -36,20 +34,19 @@ public class TestePersistirMedico {
     public void teste(){
         boolean exception = false;
         try {
-            Medico m = new Medico();
-            m.setCrm("32-222");
-            m.setAltura(1.80);
-            Especialidade esp = em.find(Especialidade.class, 1);
-            m.setEspecialidade(esp);
-            m.setHistorico("Saudavel");
-            Calendar data = Calendar.getInstance();
-            m.setNascimento(data);
-            m.setNome("Paulo Medico");
-            m.setPeso(65.00);
-            m.setSexo("Masculino");
-            m.setTelefone("54999999999");
+            Permissao p1 = new Permissao();
+            p1.setNome("ADMINISTRADOR");
+            p1.setDescricao("Administradores do sistema");
+            Permissao p2 = new Permissao();
+            p2.setNome("USUARIO");
+            p2.setDescricao("Usuários do sistema");
+            Permissao p3 = new Permissao();
+            p3.setNome("CLIENTE");
+            p3.setDescricao("Clientes do sistema");
             em.getTransaction().begin();
-            em.persist(m);
+            em.persist(p1);
+            em.persist(p2);
+            em.persist(p3);
             em.getTransaction().commit();
         } catch (Exception e) {
             exception = true;

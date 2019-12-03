@@ -10,7 +10,7 @@
     <class>br.edu.ifsul.modelo.Receituario</class>
     <class>br.edu.ifsul.modelo.Medicamento</class>
     <properties>
-      <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/PW-2019-2"/>
+      <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/PW-2019-2-Trabalho"/>
       <property name="javax.persistence.jdbc.user" value="postgres"/>
       <property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver"/>
       <property name="javax.persistence.jdbc.password" value="postgres"/>
